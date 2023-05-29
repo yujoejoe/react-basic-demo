@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals'
 import './static/index.css' // 引入全局样式
 
 // import JsxUsage from './views/jsx/index';
-import PostComments from './views/demo/index'
+// import PostComments from './views/demo/index'
+import Css3dModel from './views/css-3d-model/index'
 
 // 2、创建React元素
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -15,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<React.StrictMode>
 		{/* <JsxUsage /> */}
-		<PostComments />
+		<Css3dModel />
 	</React.StrictMode>
 )
 

@@ -1,0 +1,133 @@
+ul {
+	position: relative;
+	width: 400px;
+	height: 200px;
+	margin: 200px auto;
+	padding: 0;
+	list-style: none;
+	perspective: 1000px;
+	perspective-origin: 50% 50%;
+	transform-style: preserve-3d;
+	transform: rotateX(-35deg);
+}
+
+li {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+li:nth-child(1) {
+	background: red;
+	width: 400px;
+	height: 200px;
+}
+
+li:nth-child(2) {
+	background: yellow;
+	width: 400px;
+	height: 200px;
+	transform-origin: 0;
+	transform: rotateY(90deg);
+}
+
+li:nth-child(3) {
+	background: blue;
+	width: 400px;
+	height: 200px;
+	transform-origin: 400px;
+	transform: rotateY(-90deg);
+}
+
+li:nth-child(4) {
+	background: green;
+	width: 400px;
+	height: 200px;
+	transform: translateZ(-400px);
+}
+
+@-webkit-keyframes domove {
+	0% {
+		-webkit-transform: rotate(0deg) translate(0px);
+	}
+	25% {
+		-webkit-transform: rotateX(90deg) rotateY(-90deg) translateX(50px)
+			translateY(-50px);
+	}
+	50% {
+		-webkit-transform: rotateX(-180deg) rotateY(180deg) translateX(0px)
+			translateY(0px);
+	}
+	75% {
+		-webkit-transform: rotateX(-270deg) rotateY(-270deg) translateX(-50px)
+			translateY(50px);
+	}
+	100% {
+		-webkit-transform: rotate(-360deg) translate(0px);
+	}
+}
+.warp {
+	width: 800px;
+	height: 500px;
+	border: 1px solid #000000;
+	margin: 200px auto;
+	-webkit-perspective-origin: top right; /*景深基点,右上视角*/
+	-webkit-perspective: 600px; /*景深600px*/
+}
+.warp .box {
+	width: 100px;
+	line-height: 100px;
+	margin: 200px auto;
+	position: relative;
+	-webkit-transform-style: preserve-3d; /* 搭建一个3D效果的环境*/
+	-webkit-animation: 3s domove infinite linear; /*无限循环且速度匀速*/
+}
+
+.warp .box div {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	background: blue;
+	text-align: center;
+}
+/*用绝对定位为每个盒子定位一个正六边体的平面图*/
+/*然后根据需求来将他们折叠成正方体*/
+.warp .box div:nth-child(1) {
+	top: -100px;
+	left: 0px;
+	background: red;
+	-webkit-transform-origin: bottom; /*沿这个盒子的底边旋转，以下面同理*/
+	-webkit-transform: rotateX(-90deg); /*X轴旋转-90度，以下面同理*/
+}
+.warp .box div:nth-child(2) {
+	top: 100px;
+	left: 0px;
+	background: green;
+	-webkit-transform-origin: top;
+	-webkit-transform: rotateX(90deg);
+}
+.warp .box div:nth-child(3) {
+	top: 0px;
+	left: 0px;
+	background: yellow;
+	-webkit-transform: translateZ(100px) rotateZ(-180deg); /*Z轴平移了100px,沿Z轴旋转了-180度*/
+}
+.warp .box div:nth-child(4) {
+	top: -0px;
+	left: -100px;
+	background: orange;
+	-webkit-transform-origin: right;
+	-webkit-transform: rotateY(90deg);
+}
+.warp .box div:nth-child(5) {
+	top: 0px;
+	right: -100px;
+	background: darkkhaki;
+	-webkit-transform-origin: left;
+	-webkit-transform: rotateY(-90deg);
+}
+.warp .box div:nth-child(6) {
+	top: 0px;
+	left: 0px;
+	background: rgba(255, 255, 090, 0.5);
+}
