@@ -1,0 +1,23 @@
+.first {
+	line-height: 50px;
+	color: #ffffff;
+	text-align: center;
+	font-size: 18px;
+	padding: 30px;
+	background: red;
+}
+
+.second {
+	padding: 30px;
+	background: blue;
+}
+
+.third {
+	padding: 30px;
+	background: green;
+}
+
+.fourth {
+	padding: 30px;
+	background: purple;
+}
