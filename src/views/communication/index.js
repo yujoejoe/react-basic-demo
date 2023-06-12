@@ -1,6 +1,8 @@
 import React from 'react'
 import './index.css'
 
+import PropTypes from 'prop-types'
+
 /**
  * 组件间的通信demo
  */
@@ -16,7 +18,7 @@ class Communication extends React.Component {
 			<Provider value="red">
 				<div className="first">
 					我是first
-					<Node name="张" age={18} />
+					<Node name="张" age={16} />
 				</div>
 			</Provider>
 		)
@@ -39,6 +41,17 @@ const Node = props => {
 	)
 }
 
+// Node组件 添加props校验
+Node.propTypes = {
+	name: PropTypes.string.isRequired, // string类型，必填
+	age: PropTypes.number, // number类型
+}
+
+// Node组件 添加props默认值
+Node.defaultProps = {
+	age: 18,
+}
+
 const SubNode = props => {
 	return (
 		<div className="third">
@@ -49,7 +62,7 @@ const SubNode = props => {
 				}}>
 				点我给父组件second-Node传值
 			</button>
-			<Child />
+			<Child>我是子节点</Child>
 		</div>
 	)
 }
@@ -59,6 +72,7 @@ const Child = props => {
 		<div className="fourth">
 			<div>我是fourth-Child</div>
 			<Consumer>{data => <span>我是first接收来的数据: {data}</span>}</Consumer>
+			<div>组件标签的子节点：{props.children}</div>
 		</div>
 	)
 }
