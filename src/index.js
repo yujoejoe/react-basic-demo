@@ -5,7 +5,8 @@ import reportWebVitals from './reportWebVitals'
 
 import './static/index.css' // 引入全局样式
 
-import Communication from './views/communication/index'
+import LifeCycle from './views/life-cycle/index'
+// import Communication from './views/communication/index'
 // import JsxUsage from './views/jsx/index';
 // import PostComments from './views/demo/index'
 // import Css3dModel from './views/css-3d-model/index'
@@ -16,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 // 3、渲染React元素
 root.render(
 	<React.StrictMode>
-		<Communication />
+		<LifeCycle />
 	</React.StrictMode>
 )
 
