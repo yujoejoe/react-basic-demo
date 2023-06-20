@@ -5,7 +5,8 @@ import reportWebVitals from './reportWebVitals'
 
 import './static/index.css' // 引入全局样式
 
-import Mouse from './views/mouse/index'
+import MouseHigher from './views/mouse/higher-order'
+// import Mouse from './views/mouse/index'
 // import LifeCycle from './views/life-cycle/index'
 // import Communication from './views/communication/index'
 // import JsxUsage from './views/jsx/index';
@@ -18,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 // 3、渲染React元素
 root.render(
 	<React.StrictMode>
-		<Mouse />
+		<MouseHigher />
 	</React.StrictMode>
 )
 
