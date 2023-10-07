@@ -97,7 +97,26 @@ class JsxUsage extends React.Component {
 	}
 	// 事件处理程序
 	onAdd = () => {
-		this.setState({ count: this.state.count + 1 })
+		// 注意：setState()是异步更新数据的
+		// this.setState({ count: this.state.count + 2 }) // 这个不触发，不执行
+		// console.log('异步更新程序后的数值a', this.state.count) // 0
+		// 多次调用setState()只会触发一次重新渲染
+		// this.setState({ count: this.state.count + 1 }) // 这个触发执行了
+		// console.log('异步更新程序后的数值b', this.state.count) // 0
+
+		// 推荐语法，这种写法可以保持state是最新的，可以多次触发
+		this.setState(
+			(state, props) => {
+				return {
+					count: state.count + 1,
+				}
+			},
+			// 第二个参数，可有可无，状态更新后立即执行的操作
+			() => {
+				console.log('状态更新完成', this.state.count)
+			}
+		)
+		console.log('异步更新程序后的数值', this.state.count)
 	}
 	// 受控组件
 	handleChange = e => {

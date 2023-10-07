@@ -23,6 +23,16 @@ class LifeCycle extends React.Component {
 		console.warn('生命周期钩子函数: constructor')
 	}
 
+	// 是否更新组件：先执行shouldComponentUpdate()，再执行render()
+	shouldComponentUpdate(nextProps, nextState) {
+		// 更新前的状态
+		console.log('this.state', this.state)
+		// 最新的状态
+		console.log('最新的state', nextState)
+		// 返回false的话，阻止组件重新渲染
+		return true
+	}
+
 	// 渲染UI：注意，render中不能使用setState
 	render() {
 		console.warn('生命周期钩子函数: render')
@@ -49,6 +59,7 @@ class LifeCycle extends React.Component {
 
 // 子组件
 class Counter extends React.Component {
+	// 渲染UI
 	render() {
 		console.warn('生命周期钩子函数--子组件: render')
 		return <h1>统计次数: {this.props.count}</h1>
