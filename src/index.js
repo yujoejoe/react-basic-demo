@@ -3,15 +3,42 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 
-import './static/index.css' // 引入全局样式
+import './styles/index.css' // 引入全局样式
 
-// import MouseHigher from './views/mouse/higher-order'
-// import Mouse from './views/mouse/index'
-import LifeCycle from './views/life-cycle/index'
-// import Communication from './views/communication/index'
-// import JsxUsage from './views/jsx/index'
-// import PostComments from './views/demo/index'
-// import Css3dModel from './views/css-3d-model/index'
+// 安装：yarn add react-router-dom  导入路由核心
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { routers } from '../src/router/index'
+
+// 使用Router组件包裹整个应用
+// 使用Link组件作为导航菜单，路由人口
+// 使用Route组件配置路由规则和要展示的组件，路由出口，exact属性表示精确匹配
+const App = () => (
+	<Router>
+		<div>
+			<h1>React路由基础</h1>
+			<div style={{ textAlign: 'center', marginBottom: '22px' }}>
+				{routers.map((item, index) => {
+					return (
+						<Link key={index} to={item.path} style={{ marginRight: '16px' }}>
+							{item.name}
+						</Link>
+					)
+				})}
+			</div>
+			<Routes>
+				{routers.map((item, index) => {
+					return (
+						<Route
+							exact
+							key={index}
+							path={item.path}
+							element={<item.component />}></Route>
+					)
+				})}
+			</Routes>
+		</div>
+	</Router>
+)
 
 // 2、创建React元素
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -19,7 +46,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 // 3、渲染React元素
 root.render(
 	<React.StrictMode>
-		<LifeCycle />
+		<App />
 	</React.StrictMode>
 )
 

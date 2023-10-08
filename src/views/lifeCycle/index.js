@@ -62,7 +62,7 @@ class Counter extends React.Component {
 	// 渲染UI
 	render() {
 		console.warn('生命周期钩子函数--子组件: render')
-		return <h1>统计次数: {this.props.count}</h1>
+		return <h2>统计次数: {this.props.count}</h2>
 	}
 
 	// 组件更新：注意，如果要setState必须放在一个if条件中，否则会触发父组件更新导致进入死循环

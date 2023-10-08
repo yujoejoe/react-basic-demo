@@ -55,9 +55,9 @@ function withMouse(WrappedComponent) {
 // 位置组件，用来测试高阶组件
 const Position = props => (
 	<div>
-		<h1>
+		<h2>
 			鼠标位置: {props.x}, {props.y}
-		</h1>
+		</h2>
 		MousePosition组件: 接收的参数 a == {props.a}
 	</div>
 )
@@ -68,10 +68,11 @@ const Cat = props => (
 		<img
 			src={require('../../static/images/cat.png')}
 			alt="猫"
+			height="22px"
 			style={{
 				position: 'absolute',
-				top: props.y - 62,
-				left: props.x - 62,
+				top: props.y - 10,
+				left: props.x - 10,
 			}}
 		/>
 		MouseCat组件: 接收的参数 a == {props.a}
