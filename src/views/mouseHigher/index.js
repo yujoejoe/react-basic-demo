@@ -66,7 +66,7 @@ const Position = props => (
 const Cat = props => (
 	<div>
 		<img
-			src={require('../../static/images/cat.png')}
+			src={require('../../assets/images/cat.png')}
 			alt="猫"
 			height="22px"
 			style={{
